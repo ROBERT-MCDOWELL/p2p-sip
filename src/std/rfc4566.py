@@ -126,7 +126,7 @@ class SDP(attrs):
                     name, sep, rest = rest.partition('/')
                     rate, sep, params = rest.partition('/')
                     for f in filter(lambda x: str(x.pt) == str(pt), obj.fmt):
-                        f.name = name; f.rate = int(rate); f.params = params or None
+                        f.name = name; f.rate = int(rate or 8000); f.params = params or None
                 else:
                     obj[k] = (k in SDP._multiple and ((k in obj) and (obj[k]+[v]) or [v])) or v 
             else:          # global
